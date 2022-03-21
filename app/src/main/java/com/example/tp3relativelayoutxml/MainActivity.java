@@ -10,6 +10,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public static DateFormat DATE_FORMATER = new SimpleDateFormat("dd/MM/yyyy");
     EditText dateText;
     DatePickerDialog datePickerDialog;
+    Date date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
                 c.set(year, month, dayOfMonth);
                 Date date = c.getTime();
                 dateText.setText(DATE_FORMATER.format(date));
+                try {
+                    date = DATE_FORMATER.parse(dateText.getText().toString());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         }, year, month, day);
         datePickerDialog.show();
