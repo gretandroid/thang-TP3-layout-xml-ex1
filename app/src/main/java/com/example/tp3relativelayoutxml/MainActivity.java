@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
 
-        dateText = findViewById(R.id.dateText);
-        dateText.setInputType(InputType.TYPE_NULL);
+//        dateText = findViewById(R.id.dateText);
+//        dateText.setInputType(InputType.TYPE_NULL);
     }
 
     public void selectDate(View view) {
